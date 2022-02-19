@@ -1,0 +1,61 @@
+server:
+  port: 8700
+
+#https://docs.spring.io/spring-boot/docs/1.1.6.RELEASE/reference/html/common-application-properties.html
+
+spring:
+  cache:
+    type: redis
+    redis:
+      cache-null-values: false
+      time-to-live: 30000
+      use-key-prefix: false
+  redis:
+    host: localhost
+    port: 6379
+  datasource:
+    dbcp2:
+      initial-size: 10
+      max-idle: 10
+      default-query-timeout: 60000
+      default-auto-commit: true
+    url: jdbc:oracle:thin:@10.21.198.44:1527:OCP
+    username: OCS_PROD
+    password: xyz-0000
+    driver: 
+      class-name: oracle.jdbc.OracleDriver
+  jpa:
+   show-sql: true
+   hibernate: 
+      ddl-auto: update
+   properties:
+      hibernate.dialect: org.hibernate.dialect.Oracle12cDialect
+
+########## ORACLE DB Connection Config ##########
+ # spring.datasource.url=jdbc:oracle:thin:@10.21.198.44:1527:OCP
+ # spring.datasource.username=OCS_PROD
+ # spring.datasource.password=xyz-0000
+ # spring.jpa.hibernate.ddl-auto=update
+#  spring.jpa.show-sql=true
+#  spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.Oracle12cDialect
+#  spring.datasource.driver.class-name=oracle.jdbc.OracleDriver
+
+  #redis.host=localhost
+  #redis.port=6379
+  #redis.timeout=120000
+  #redis.password=
+  #redis.max_connections=400
+
+  #server.contextPath=/
+ # spring.data.rest.base-path=/api/v1
+ # spring.mvc.dispatch-options-request=true
+
+# Enable compression
+ # server.compression.enabled=true
+  # List of mime types to be compressed
+ # server.compression.mime-types=text/xml,text/plain,text/html,text/css,text/javascript,application/javascript,application/json,application/xml
+  # Compress the response size > 1KB
+ # server.compression.min-response-size=1024
+  # HTTP/2 support
+ # server.http2.enabled=true
+
